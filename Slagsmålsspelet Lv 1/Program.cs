@@ -5,12 +5,11 @@ Console.WriteLine("Välkommen till mitt slagsmålsspel");
 Console.WriteLine("Skriv in ditt namn");
 
 string name  = Console.ReadLine();
-while (name.Length < 3)
+while (name.Length < 3 || !name.All(Char.IsLetter))
 {
     Console.WriteLine("Skriv in ditt namn, sa jag, dumhuvve");
     name = Console.ReadLine();
 }
-
 
 
 Console.WriteLine($"Hej {name}");
