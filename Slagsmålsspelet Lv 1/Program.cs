@@ -8,7 +8,7 @@ bool RoundOver = false;
 
 static int NästaRunda(bool RoundOver, string Pl1Name, int Pl_1_HP, string Pl2Name, int Pl_2_HP)
 {
-    Console.WriteLine($"{Pl1Name}: {Pl_1_HP} {Pl2Name}; {Pl_2_HP}\n");
+    Console.WriteLine($"{Pl1Name}: {Pl_1_HP} {Pl2Name}; {Pl_2_HP}");
     if (RoundOver == true)
     {
         return 1;
@@ -35,8 +35,6 @@ Console.ReadLine();
 
 while (Pl_1_HP > 0 &&  Pl_2_HP > 0)
 {
-    if (RoundOver = true)
-{
     Console.WriteLine($"\nRunda{Round}");
 
     int Pl_1_Damage = Random.Shared.Next(20);
@@ -46,8 +44,25 @@ while (Pl_1_HP > 0 &&  Pl_2_HP > 0)
     int Pl_2_Damage = Random.Shared.Next(20);
     Pl_1_HP -= Pl_2_Damage;
     Pl_1_HP = Math.Max(0, Pl_1_HP);
+    RoundOver = true;
     Round += NästaRunda(RoundOver, Pl1Name, Pl_1_HP, Pl2Name, Pl_2_HP);
+    Console.WriteLine("Tryck Valfri Knapp");
     Console.ReadKey();
-
 }
+
+Console.WriteLine("Fighten är över");
+if (Pl_1_HP == 0 && Pl_2_HP == 0)
+{
+    Console.WriteLine("Oavgjort!");
+     Console.ReadLine();
+}
+else if(Pl_2_HP == 0)
+{
+    Console.WriteLine($"{Pl1Name} har vunnit!");
+     Console.ReadLine();
+}
+else
+{
+ Console.WriteLine("Player 2 har vunnit!");
+ Console.ReadLine();
 }
